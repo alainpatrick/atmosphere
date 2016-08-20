@@ -15,6 +15,13 @@ function initMap() {
     disableDoubleClickZoom: true
   });
 
+  // Overlay the heatmap.
+  var heat = new google.maps.visualization.HeatmapLayer({
+    data: [],
+    map: map
+  });
+
+
   function addSample(snapshot, prevChildKey) {
     // Get latitude and longitude from the cloud.
     var newSample = snapshot.val();
@@ -25,7 +32,7 @@ function initMap() {
     var latLng = new google.maps.LatLng(newSample.latitude, newSample.longitude);
     var heartRate = newSample.heartRate;
 
-    points.push({
+    heat.getData().push({
       location: latLng,
       weight: heartRate
     });
@@ -47,11 +54,6 @@ function initMap() {
     } else {
       snapshot.forEach(function(sample) {
         addSample(sample, null);
-      });
-      // Overlay the heatmap.
-      var marker = new google.maps.visualization.HeatmapLayer({
-        data: points,
-        map: map
       });
     }
   });
