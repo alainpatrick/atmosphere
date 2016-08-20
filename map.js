@@ -2,8 +2,8 @@ var firebase = new Firebase("https://atmosphere-5b99c.firebaseio.com/message_lis
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 52, lng: -3},
-    zoom: 7,
+    center: {lat: 51.5, lng: -0.12},
+    zoom: 13,
     styles: [{
       featureType: 'poi',
       stylers: [{ visibility: 'off' }]  // Turn off points of interest.
