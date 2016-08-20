@@ -31,6 +31,7 @@ function initMap() {
     // Place a marker at that location.
     var marker = new google.maps.Marker({
       position: latLng,
+      title: heartRate + 'bpm',
       map: map
     });
   }
